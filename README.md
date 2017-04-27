@@ -19,7 +19,9 @@
 
 ___
 <h2>Get Started</h2>
+
 > download the latest release [Here](https://www.dropbox.com/s/z0kifs7zl2149s9/SonosSays.zip?dl=0)
+
 
 * Get the latest version of SonosTalk
 * Open the app and chat with your sonos sytem
