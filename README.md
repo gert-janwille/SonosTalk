@@ -38,12 +38,14 @@ It‘s possible you can‘t open the app than you need to do the next steps:
 <br/>
 ____
 <h2>Contribute</h2>
+
 clone and navigate to the folder.
-```bash
 
-> yarn
+```
 
-> yarn start
+$ yarn
+
+$ yarn start
 ```
 
 <br/>
