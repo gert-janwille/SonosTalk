@@ -10,10 +10,13 @@
   <p>
 </div>
 
-<h3><a href="https://www.dropbox.com/s/z0kifs7zl2149s9/SonosSays.zip?dl=0">Download for Mac</a></h3>
-[![Downloads](https://img.shields.io/github/downloads/gert-janwille/SonosTalk/latest/total.svg)](https://codeload.github.com/gert-janwille/SonosTalk/zip/V1.0.0)
-![NPM](https://img.shields.io/npm/v/@cycle/core.svg)
-![License](https://img.shields.io/github/license/mashape/apistatus.svg)
+<h3 align="center"><a href="https://www.dropbox.com/s/z0kifs7zl2149s9/SonosSays.zip?dl=0">Download for Mac</a></h3>
+
+<div align="center">
+  [![Downloads](https://img.shields.io/github/downloads/gert-janwille/SonosTalk/latest/total.svg)](https://codeload.github.com/gert-janwille/SonosTalk/zip/V1.0.0)
+  ![NPM](https://img.shields.io/npm/v/@cycle/core.svg)
+  ![License](https://img.shields.io/github/license/mashape/apistatus.svg)
+<div/>
 <br/><br/>
 
 ___
@@ -24,7 +27,8 @@ ___
 * Open the app and chat with your sonos sytem
 
 
-
+**Troubleshooting**
+<br/>
 It‘s possible you can‘t open the app than you need to do the next steps:
   * Go to `System Prefrences` > `Security & Privacy`
   * At the bottom you'll see that SonosApp is blocked. You can click on the button `Open Anyway`. The app will be lauched.
