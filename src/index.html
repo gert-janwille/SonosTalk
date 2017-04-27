@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sonos Says</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <main class="container">
+      <p class="succes">It has been said</p>
+
+      <form action="#">
+        <textarea class="txtcon" rows="8" cols="80" placeholder="Type the text you wanna say"></textarea>
+
+        <div class="settings">
+          <div class="item">
+            <label for="range">Sound</label>
+            <input id="range" type="range" min="0" max="100" value="40" class="range">
+          </div>
+
+          <div class="item">
+            <label for="lang">Language</label>
+            <select id="lang" class="language">
+              <option value="nl-nl">Select a Language</option>
+              <option value="nl-nl">Nederlands</option>
+              <option value="fr-fr">Frans</option>
+              <option value="en-us">Engels USA</option>
+              <option value="en-gb">Engels Brits</option>
+            </select>
+          </div>
+
+
+          <div class="item">
+            <label for="room">Select Room</label>
+            <select id="room" class="room">
+              <option value="no">Select a room</option>
+            </select>
+          </div>
+
+          <input type="submit" class="submit" value="Say">
+        </div>
+
+      </form>
+    </main>
+    <!-- <script src="./js/server.js" charset="utf-8"></script> -->
+    <script src="./js/script.js" charset="utf-8"></script>
+  </body>
+</html>
