@@ -3,6 +3,7 @@ const sound = document.querySelector('.range');
 const form = document.querySelector('form');
 const select = document.querySelector('.room');
 const language = document.querySelector('.language');
+const mbox = document.querySelector('.messages');
 
 let msgs = [];
 
@@ -37,7 +38,7 @@ const SayIt = string => {
 
   showmsg(string)
 
-  fetch(`http://localhost:5005/${string.room}/say/${string.text.replace(/ /g,"%20")}/${string.lang}/${string.sound}`)
+  fetch(`http://localhost:5005/${string.room}/say/${string.text}/${string.lang}/${string.sound}`)
     .then(d => {
       if (d.status === 200) {
         showmsg({created: Date.now(), text: `I've said in the ${string.room}.`, room: string.room, sound: string.sound, lang: string.lang, role: "sonos"})
@@ -51,7 +52,9 @@ const SayIt = string => {
 const showmsg = data => {
     let $msg = html(`
     <p class="${data.role}">${data.text}</p>`);
-    document.querySelector('.messages').appendChild($msg);
+    mbox.appendChild($msg);
+
+    window.scrollTo(0, mbox.scrollHeight);
 }
 
 const html = (strings, ...values) => {
