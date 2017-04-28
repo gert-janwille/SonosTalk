@@ -7,19 +7,35 @@ const mbox = document.querySelector('.messages');
 
 let msgs = [];
 
+let counter = 0;
+
 const init = data => {
 
   getRooms(data);
 
   document.addEventListener('keydown', e => {
     if (e.keyCode === 13) Talk(e);
+    if (e.keyCode === 38 || e.keyCode === 40) showPreMsg(e.keyCode);
   });
   form.addEventListener('submit', e => Talk(e));
 }
 
 const Talk = e => {
   e.preventDefault();
-  if (input.value !== '') SayIt({created: Date.now(), text: input.value, room: select.value, sound: sound.value, lang: language.value, role: "me"});
+
+  const data = {
+    created: Date.now(),
+    text: input.value,
+    room: select.value,
+    sound: sound.value,
+    lang: language.value,
+    role: "me"
+  };
+
+  msgs.push(data);
+  counter = msgs.length;
+
+  if (input.value !== '') SayIt(data);
   input.value = '';
 }
 
@@ -55,6 +71,20 @@ const showmsg = data => {
     mbox.appendChild($msg);
 
     window.scrollTo(0, mbox.scrollHeight);
+}
+
+const showPreMsg = key => {
+  if (msgs.length <= 0) return;
+
+  if (key === 38 && counter > 0) counter--;
+  if (key === 40 && counter < msgs.length) counter++;
+
+  if (counter === msgs.length) {
+    return input.value = "";
+  }
+
+  input.value = msgs[counter].text;
+
 }
 
 const html = (strings, ...values) => {
