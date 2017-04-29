@@ -12,6 +12,31 @@
   font-family: sf, sans-serif;
 }
 
+.visible {
+  visibility: hidden;
+}
+
+.overlay {
+  background: #F4F4F4;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FF2746;
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 2vw;
+}
+
+.overlay img {
+  animation: rotating 2s ease-in-out infinite;
+}
+
 body, html {
   width: 100vw;
   height: 100vh;
@@ -29,7 +54,7 @@ header {
   top: 0;
   background: #FF2746;
   width: 100vw;
-  height: 5rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +63,24 @@ header {
   font-family: sans-serif;
   font-weight: lighter;
   font-size: 2vw;
+}
+
+header .delete {
+  position: absolute;
+  right: 0;
+  margin-right: 2rem;
+  background: url(../assets/svg/bin.svg) no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+header .resize {
+  position: absolute;
+  left: 0;
+  margin-left: 2rem;
+  background: url(../assets/svg/resize.svg) no-repeat center;
+  background-size: contain;
+  cursor: pointer;
 }
 
 form {
@@ -115,7 +158,6 @@ form {
 }
 
 .submit {
-  background: red;
   width: 3rem;
   height: 3rem;
   border: none;
@@ -123,7 +165,13 @@ form {
   background-size: contain;
   cursor: pointer;
   outline: none;
+  transition: all .3s ease;
 }
+
+.submit:hover {
+  margin: -1% -1% 0 0;
+}
+
 
 .messages {
   z-index: 1;
@@ -132,6 +180,22 @@ form {
   display: flex;
   flex-direction: column;
   padding: 2rem;
+}
+
+.bericht {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bericht .delete {
+  width: 1rem;
+  height: 1rem;
+  right: 0;
+  background: url(../assets/svg/bin-msg.svg) no-repeat center;
+  background-size: contain;
+  cursor: pointer;
 }
 
 .me {
@@ -147,4 +211,21 @@ form {
   background: #5FC4F8;
   padding: 1rem 2rem;
   border-radius: 100px;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

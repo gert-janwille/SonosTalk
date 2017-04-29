@@ -1,23 +1,53 @@
+const {BrowserWindow} = require('electron').remote;
+
 const input = document.querySelector('.txtcon');
 const sound = document.querySelector('.range');
 const form = document.querySelector('form');
 const select = document.querySelector('.room');
 const language = document.querySelector('.language');
+
 const mbox = document.querySelector('.messages');
 
 let msgs = [];
 
 let counter = 0;
+let minim = false;
+
+const connected = false;
 
 const init = data => {
 
   getRooms(data);
 
+  document.querySelector('.resize').addEventListener('click', e => resize(e));
+  document.querySelector('.overlay').classList.add('visible');
+  document.querySelector('.delete').addEventListener('click', e => mbox.innerHTML = "");
+
   document.addEventListener('keydown', e => {
+
+    if (e.keyCode === 9) {
+      e.preventDefault();
+      input.select()
+    };
     if (e.keyCode === 13) Talk(e);
     if (e.keyCode === 38 || e.keyCode === 40) showPreMsg(e.keyCode);
   });
+
   form.addEventListener('submit', e => Talk(e));
+}
+
+const resize = e => {
+  minim = !minim;
+  let sizes = minim ? {w: 700, h: 150 } : {w: 800, h: 600 };
+
+  if (minim) {
+    BrowserWindow.getAllWindows()[0].setPosition(0, 0, true);
+  }else{
+    BrowserWindow.getAllWindows()[0].center();
+  }
+
+  BrowserWindow.getAllWindows()[0].setSize(sizes.w, sizes.h, true);
+
 }
 
 const Talk = e => {
@@ -67,7 +97,7 @@ const SayIt = string => {
 
 const showmsg = data => {
     let $msg = html(`
-    <p class="${data.role}">${data.text}</p>`);
+    <p class="bericht ${data.role}">${data.text}</p>`);
     mbox.appendChild($msg);
 
     window.scrollTo(0, mbox.scrollHeight);
@@ -84,7 +114,6 @@ const showPreMsg = key => {
   }
 
   input.value = msgs[counter].text;
-
 }
 
 const html = (strings, ...values) => {

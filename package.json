@@ -10,15 +10,16 @@
   "author": "Gert-Jan Wille",
   "license": "MIT",
   "dependencies": {
-    "electron": "^1.6.6",
     "anesidora": "^1.2.0",
     "aws-sdk": "^2.12.0",
     "basic-auth": "~1.1.0",
+    "electron": "^1.6.6",
     "fuse.js": "^2.5.0",
+    "html-entities": "1.0.x",
     "json5": "^0.5.1",
+    "menu": "^0.2.5",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
-    "html-entities": "1.0.x",
     "xml-flow": "^1.0.1"
   },
   "devDependencies": {
